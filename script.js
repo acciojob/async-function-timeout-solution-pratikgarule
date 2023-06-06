@@ -1,21 +1,8 @@
-const text = document.getElementById("text");
-const delay = document.getElementById("delay");
-const btn = document.getElementById("btn");
-const output = document.getElementById("output");
+const showMessage = async () => {
+  const text = document.getElementById("text").value;
+  const delay = document.getElementById("delay").value;
+  await new Promise(resolve => setTimeout(resolve, delay * 1000));
+  document.getElementById("output").textContent = text;
+};
 
-//your code here
- function showMessage() {
-    const message = text.value;
-    const delayVal = delay.value; 
-  setTimeout (() =>{
-    givingValue();
-   },delayVal ) 
-  
-   async function givingValue (){
-    await showMessage();
-    output.innerHTML = message;
-   }
-  
-}
-
-btn.addEventListener("click", showMessage);
+document.getElementById("btn").addEventListener("click", showMessage);
